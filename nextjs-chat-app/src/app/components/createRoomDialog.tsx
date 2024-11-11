@@ -30,12 +30,11 @@ export function CreateRoomDialog() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            email: session?.user.email,
+            email: session?.user?.email,
             chatRoomName,
           }),
         }
       );
-      ``;
 
       if (!response.ok) {
         const errorData = await response.json();
@@ -44,7 +43,6 @@ export function CreateRoomDialog() {
         return;
       }
 
-      const data = await response.json();
       window.location.reload();
       alert("You have successfully joined the room!");
     } catch (error) {
