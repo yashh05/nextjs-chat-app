@@ -26,7 +26,7 @@ const ChatRoom: React.FC<ChatRoomProps> = () => {
       return;
     }
 
-    const newSocket = io("http://localhost:3001");
+    const newSocket = io(`${process.env.NEXT_PUBLIC_BACKEND_URL}`);
 
     newSocket.emit("joinRoom", { chatroomId });
 
